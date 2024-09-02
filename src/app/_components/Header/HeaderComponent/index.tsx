@@ -5,7 +5,7 @@ import { Header } from '../../../../payload/payload-types'
 import { Gutter } from '../../Gutter'
 import Link from 'next/link'
 import Image from 'next/image'
-import MobileNav from '../MobileNav'
+// import MobileNav from '../MobileNav'
 import { HeaderNav } from '../Nav'
 
 import classes from './index.module.scss'
@@ -22,7 +22,7 @@ const HeaderComponent = ({ header }: { header: Header }) => {
         </Link>
 
         <HeaderNav header={header} />
-        <MobileNav header={header} />
+        {/* <MobileNav header={header} /> */}
       </Gutter>
     </nav>
   )

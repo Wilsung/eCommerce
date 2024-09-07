@@ -50,6 +50,19 @@
   }
 }
 
+.backLink {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 4px;
+  text-decoration: none;
+
+  p {
+    color: var(--color-dark-500);
+    font-size: 18px;
+  }
+}
+
 .logo {
   margin: 60px;
   width: 30%;

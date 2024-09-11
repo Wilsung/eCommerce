@@ -8,6 +8,6 @@ module.exports = {
   rules: {
     'prettier/prettier': 0,
     'no-console': 'off',
-    'simple-import-sort/imports': 'error'
+    'simple-import-sort/imports': error,
   },
 }

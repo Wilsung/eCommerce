@@ -67,7 +67,7 @@ export const Card: React.FC<{
   }, [priceJSON])
 
   return (
-    <Link href={href}  className={[classes.card, className].filter(Boolean).join(' ')}>
+    <Link href={href} className={[classes.card, className].filter(Boolean).join(' ')}>
       <div className={classes.mediaWrapper}>
         {!metaImage && <div className={classes.placeholder}>No image</div>}
         {metaImage && typeof metaImage !== 'string' && (
@@ -75,11 +75,7 @@ export const Card: React.FC<{
         )}
       </div>
       <div className={classes.content}>
-        {titleToUse && (
-          <h4 className={classes.title}>
-              {titleToUse}
-          </h4>
-        )}
+        {titleToUse && <h4 className={classes.title}>{titleToUse}</h4>}
         {description && (
           <div className={classes.body}>
             {description && <p className={classes.description}>{sanitizedDescription}</p>}

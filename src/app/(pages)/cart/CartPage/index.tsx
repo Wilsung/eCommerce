@@ -56,60 +56,66 @@ export const CartPage: React.FC<{
             </div>
           ) : (
             <div className={classes.cartWrapper}>
-              <div className={classes.header}>
-                <p>Products</p>
-                <div className={classes.headerItemDetails}>
+              <div>
+                {/* Cart Header */}
+                <div className={classes.header}>
+                  <p>Products</p>
+                  <div className={classes.headerItemDetails}>
+                    <p></p>
+                    <p></p>
+                    <p>Quantity</p>
+                  </div>
                   <p className={classes.headersubtotal}>Subtotal</p>
                 </div>
-              </div>
-              <div>
-                <ul className={classes.itemsList}>
-                  {cart?.items?.map((item, index) => {
-                    if (typeof item.product === 'object') {
-                      const {
-                        quantity,
-                        product,
-                        product: { id, title, meta, stripeProductID },
-                      } = item
+                {/* Cart List */}
+                <div>
+                  <ul className={classes.itemsList}>
+                    {cart?.items?.map((item, index) => {
+                      if (typeof item.product === 'object') {
+                        const {
+                          quantity,
+                          product,
+                          product: { id, title, meta, stripeProductID },
+                        } = item
 
-                      const isLast = index === (cart?.items?.length || 0) - 1
+                        const isLast = index === (cart?.items?.length || 0) - 1
 
-                      const metaImage = meta?.image
+                        const metaImage = meta?.image
 
-                      return (
-                        <CartItem
-                          product={product}
-                          title={title}
-                          metaImage={metaImage}
-                          index={index}
-                          qty={quantity}
-                          addItemToCart={addItemToCart}
-                        />
-                      )
-                    }
-                    return null
-                  })}
-                </ul>
-              </div>
-
-              <div className={classes.summary}>
-                <div className={classes.row}>
-                  <h6 className={classes.cartTotal}>Summary</h6>
+                        return (
+                          <CartItem
+                            product={product}
+                            title={title}
+                            metaImage={metaImage}
+                            qty={quantity}
+                            addItemToCart={addItemToCart}
+                          />
+                        )
+                      }
+                      return null
+                    })}
+                  </ul>
                 </div>
-                <div className={classes.row}>
-                  <h6 className={classes.cartTotal}>Delivery Charge</h6>
-                  <h6 className={classes.cartTotal}>$0</h6>
+
+                <div className={classes.summary}>
+                  <div className={classes.row}>
+                    <h6 className={classes.cartTotal}>Summary</h6>
+                  </div>
+                  <div className={classes.row}>
+                    <h6 className={classes.cartTotal}>Delivery Charge</h6>
+                    <h6 className={classes.cartTotal}>$0</h6>
+                  </div>
+                  <div className={classes.row}>
+                    <h6 className={classes.cartTotal}>Grand Total</h6>
+                    <h6 className={classes.cartTotal}>{cartTotal.formatted}</h6>
+                  </div>
+                  <Button
+                    className={classes.checkoutButton}
+                    href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}
+                    label={user ? 'Checkout' : 'Login to checkout'}
+                    appearance="primary"
+                  />
                 </div>
-                <div className={classes.row}>
-                  <h6 className={classes.cartTotal}>Grand Total</h6>
-                  <h6 className={classes.cartTotal}>{cartTotal.formatted}</h6>
-                </div>
-                <Button
-                  className={classes.checkoutButton}
-                  href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}
-                  label={user ? 'Checkout' : 'Login to checkout'}
-                  appearance="primary"
-                />
               </div>
             </div>
           )}

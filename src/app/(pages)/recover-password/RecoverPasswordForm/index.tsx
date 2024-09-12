@@ -51,23 +51,23 @@ export const RecoverPasswordForm: React.FC = () => {
       {!success && (
         <React.Fragment>
           <p>Enter your registered email address. A code will be sent to reset your password.</p>
-            <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-              <Message error={error} className={classes.message} />
-              <Input
-                name="email"
-                label="Email Address"
-                required
-                register={register}
-                error={errors.email}
-                type="email"
-              />
-              <Button
-                type="submit"
-                appearance="primary"
-                label="Recover Password"
-                className={classes.submit}
-              />
-            </form>
+          <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+            <Message error={error} className={classes.message} />
+            <Input
+              name="email"
+              label="Email Address"
+              required
+              register={register}
+              error={errors.email}
+              type="email"
+            />
+            <Button
+              type="submit"
+              appearance="primary"
+              label="Recover Password"
+              className={classes.submit}
+            />
+          </form>
         </React.Fragment>
       )}
       {success && (

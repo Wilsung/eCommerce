@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 
 import classes from './index.module.scss'
 const Promotion = () => {
-
   const [time, setTime] = useState({
     days: 0,
     hours: 0,
@@ -12,32 +11,30 @@ const Promotion = () => {
     seconds: 0,
   })
 
-  const targetDate = new Date();
+  const targetDate = new Date()
   targetDate.setDate(targetDate.getDate() + 4)
 
   useEffect(() => {
-
     const timerId = setInterval(() => {
-      const currentTime = new Date();
-      const difference = Math.max(Number(targetDate) - Number(currentTime),0);
-      
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    
-      setTime({days, hours, minutes, seconds });
-      
-     
+      const currentTime = new Date()
+      const difference = Math.max(Number(targetDate) - Number(currentTime), 0)
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+
+      setTime({ days, hours, minutes, seconds })
+
       // Clear the interval when the target date is reached
       if (difference === 0) {
-        clearInterval(timerId);
+        clearInterval(timerId)
       }
-    }, 1000);
+    }, 1000)
 
     // Cleanup interval on component unmount
-    return () => clearInterval(timerId);
-  }, []);
+    return () => clearInterval(timerId)
+  }, [])
 
   return (
     <section className={classes.promotion}>
@@ -63,6 +60,5 @@ const StatBox = ({ label, value }: { label: string; value: number }) => (
     <p>{label}</p>
   </li>
 )
-
 
 export default Promotion

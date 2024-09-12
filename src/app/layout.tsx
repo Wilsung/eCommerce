@@ -15,7 +15,7 @@ const jost = Jost({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-jost',
-});
+})
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (

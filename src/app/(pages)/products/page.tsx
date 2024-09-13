@@ -28,6 +28,7 @@ const Products = async () => {
   } catch (error) {
     console.log(error)
   }
+
   return (
     <div className={classes.container}>
       <Gutter className={classes.products}>

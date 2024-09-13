@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react'
 
 import { Category } from '../../../../payload/payload-types'
@@ -15,12 +16,15 @@ const Filters = ({ categories }: { categories: Category[] }) => {
   const handleCategories = (categoryId: string) => {
     if (categoryFilters.includes(categoryId)) {
       const updatedCategories = categoryFilters.filter(id => id !== categoryId)
+
       setCategoryFilters(updatedCategories)
     } else {
       setCategoryFilters([...categoryFilters, categoryId])
     }
   }
+
   const handleSort = (value: string) => setSort(value)
+
   return (
     <div className={classes.filters}>
       <div>
@@ -41,7 +45,7 @@ const Filters = ({ categories }: { categories: Category[] }) => {
           })}
         </div>
         <HR className={classes.hr} />
-        <h6 className={classes.title}>Sort by</h6>
+        <h6 className={classes.title}>Sort By</h6>
         <div className={classes.categories}>
           <RadioButton
             label="Latest"

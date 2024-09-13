@@ -22,10 +22,10 @@ export default async function Account() {
 
   return (
     <Fragment>
-      <Gutter>
+      {/* <Gutter>
         <RenderParams className={classes.params} />
-      </Gutter>
-      <LowImpactHero
+      </Gutter> */}
+      {/* <LowImpactHero
         type="lowImpact"
         media={null}
         richText={[
@@ -55,10 +55,10 @@ export default async function Account() {
             ],
           },
         ]}
-      />
+      /> */}
       <Gutter className={classes.account}>
-        <AccountForm />
-        <HR />
+        {/* <AccountForm />
+        <HR /> */}
         <h2>Purchased Products</h2>
         <p>
           These are the products you have purchased over time. This provides a way for you to access

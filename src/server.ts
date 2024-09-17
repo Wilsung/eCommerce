@@ -8,7 +8,6 @@ dotenv.config({
 })
 
 import express from 'express'
-// import { getPayloadClient } from './payload/getPayload'
 import payload from 'payload'
 
 import { seed } from './payload/seed'
@@ -58,6 +57,8 @@ const start = async (): Promise<void> => {
   })
 }
 
+start()
+
 // const start = async (): Promise<void> => {
 //   const payload = await getPayloadClient({
 //     initOptions: {
@@ -96,5 +97,3 @@ const start = async (): Promise<void> => {
 //     })
 //   })
 // }
-
-start()

@@ -14,9 +14,7 @@ import payload from 'payload'
 import { seed } from './payload/seed'
 
 const app = express()
-app.use(
-  cors({ origin: ['http://localhost:3000', 'https://ecommercemongodb-blond.vercel.app/.app'] }),
-)
+app.use(cors({ origin: ['http://localhost:3000', 'https://ecommercemongodb-blond.vercel.app'] }))
 const PORT = process.env.PORT || 3000
 
 const start = async (): Promise<void> => {

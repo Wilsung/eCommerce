@@ -2,6 +2,19 @@
 const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
+const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    upgrade-insecure-requests;
+`
+
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
@@ -9,9 +22,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL]
-      .filter(Boolean)
-      .map(url => url.replace(/https?:\/\//, '')),
+    domains: ['localhost', process.env.NEXT_PUBLIC_PAYLOAD_URL || ''].filter(Boolean),
   },
   redirects,
   async headers() {
@@ -41,12 +52,24 @@ const nextConfig = {
       headers: [
         {
           key: 'Content-Security-Policy',
-          value: ContentSecurityPolicy,
+          value: cspHeader.replace(/\n/g, ''),
         },
       ],
     })
 
     return headers
+  },
+  webpack(config) {
+    config.resolve.fallback = {
+
+      // if you miss it, all the other options in fallback, specified
+      // by next.js will be dropped.
+      ...config.resolve.fallback,  
+
+      fs: false, // the solution
+    };
+    
+    return config;
   },
 }
 

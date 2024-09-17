@@ -1,6 +1,6 @@
 import { webpackBundler } from '@payloadcms/bundler-webpack' // bundler-import
 import { mongooseAdapter } from '@payloadcms/db-mongodb' // database-adapter-import
-// import { payloadCloud } from '@payloadcms/plugin-cloud'
+import { payloadCloud } from '@payloadcms/plugin-cloud'
 // import formBuilder from '@payloadcms/plugin-form-builder'
 import nestedDocs from '@payloadcms/plugin-nested-docs'
 import redirects from '@payloadcms/plugin-redirects'
@@ -144,6 +144,6 @@ export default buildConfig({
       generateTitle,
       uploadsCollection: 'media',
     }),
-    // payloadCloud(),
+    payloadCloud(),
   ],
 })

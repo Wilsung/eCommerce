@@ -19,9 +19,7 @@
     "generate:graphQLSchema": "PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload generate:graphQLSchema",
     "lint": "eslint src",
     "lint:fix": "eslint --fix --ext .ts,.tsx src",
-    "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload",
-    "next": "yarn setup && next build",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.0",
@@ -40,7 +38,7 @@
     "express": "^4.21.0",
     "firebase": "^10.13.1",
     "firebase-admin": "^12.5.0",
-    "next": "^13.5.2",
+    "next": "13.5.2",
     "payload": "^2.28.0",
     "payload-admin-bar": "^1.0.6",
     "qs": "6.11.2",

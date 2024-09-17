@@ -6,17 +6,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true, // HYB
-  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [
-      'localhost',
-      process.env.NEXT_PUBLIC_SERVER_URL,
-      // 'mongodb://atlas-sql-66db7a7f5ba2ec5abdf1302a-7toff.a.query.mongodb.net/test?ssl=true&authSource=admin',
-    ]
+    domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL]
       .filter(Boolean)
       .map(url => url.replace(/https?:\/\//, '')),
   },

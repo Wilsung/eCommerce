@@ -1,3 +1,4 @@
+import cors from 'cors'
 import dotenv from 'dotenv'
 import next from 'next'
 import nextBuild from 'next/dist/build'
@@ -13,6 +14,9 @@ import payload from 'payload'
 import { seed } from './payload/seed'
 
 const app = express()
+app.use(
+  cors({ origin: ['http://localhost:3000', 'https://ecommercemongodb-blond.vercel.app/.app'] }),
+)
 const PORT = process.env.PORT || 3000
 
 const start = async (): Promise<void> => {

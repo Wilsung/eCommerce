@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "target": "ESNEXT",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
+    "skipLibCheck": true,
     "jsx": "preserve",
     "module": "CommonJS",
     "moduleResolution": "node",
@@ -24,22 +25,17 @@
     ],
     "paths": {
       "react": [
-        "./node_modules/@types/react"
+        "./node_modules/@types/react",
       ]
     },
-    "skipLibCheck": true
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "build",
-    "temp"
   ],
   "ts-node": {
     "transpileOnly": true,

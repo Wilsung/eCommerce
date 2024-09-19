@@ -22,7 +22,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost', process.env.NEXT_PUBLIC_PAYLOAD_URL || ''].filter(Boolean),
+    domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL || ''].filter(Boolean),
   },
   redirects,
   async headers() {
@@ -61,15 +61,14 @@ const nextConfig = {
   },
   webpack(config) {
     config.resolve.fallback = {
-
       // if you miss it, all the other options in fallback, specified
       // by next.js will be dropped.
-      ...config.resolve.fallback,  
+      ...config.resolve.fallback,
 
       fs: false, // the solution
-    };
-    
-    return config;
+    }
+
+    return config
   },
 }
 

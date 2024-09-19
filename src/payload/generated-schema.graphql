@@ -24,7 +24,7 @@ type Query {
   countCategories(where: Category_where): countCategories
   docAccessCategory(id: String!): categoriesDocAccess
   User(id: String!): User
-  Users(where: User_where, limit: Int, page: Int, sort: String): Users
+  Users(where: User_where, limit: Int, page: Int, sort: String):veUsers
   countUsers(where: User_where): countUsers
   docAccessUser(id: String!): usersDocAccess
   meUser: usersMe

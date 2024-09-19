@@ -55,6 +55,7 @@ const PORT = process.env.PORT || 3000
 const start = async (): Promise<void> => {
   const payload = await getPayloadClient({
     initOptions: {
+      secret: process.env.PAYLOAD_SECRET,
       express: app,
       onInit: async newPayload => {
         newPayload.logger.info(`Payload Admin URL: ${newPayload.getAdminURL()}`)

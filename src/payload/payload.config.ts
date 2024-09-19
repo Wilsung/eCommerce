@@ -42,7 +42,7 @@ dotenv.config({
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    // user: Users.slug,
     bundler: webpackBundler(), // bundler-config
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
@@ -78,11 +78,11 @@ export default buildConfig({
   editor: slateEditor({}), // editor-config
   // database-adapter-config-start
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
-    jsonParse: false,
-    schemaOptions: {
-      strict: false,
-    },
+    url: process.env.DATABASE_URI,
+    // jsonParse: false,
+    // schemaOptions: {
+    //   strict: false,
+    // },
   }),
   // database-adapter-config-end
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
